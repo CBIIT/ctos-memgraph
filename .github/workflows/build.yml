@@ -33,12 +33,12 @@ jobs:
     - name: Set Image Tag
       run: |
         build_date=`date "+%Y-%m-%d_%H-%M-%S"`
-        echo "IMAGE_TAG=$build_date"
+        echo "IMAGE_TAG=$build_date" >> $GITHUB_ENV
       
     - name: Build
       id: build-image
       run: |
-        docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
+        docker build -t $ECR_REPOSITORY:{{ env.$IMAGE_TAG }} .
 
     - name: Set Trivy exit code
       run: |
