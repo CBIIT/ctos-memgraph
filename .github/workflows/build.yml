@@ -20,7 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     env:
-        ECR_REPOSITORY: ${{ github.repository }} 
+        #ECR_REPOSITORY: ${{ github.repository }} 
+        ECR_REPOSITORY: ctos-memgraph
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         AWS_ROLE_TO_ASSUME: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
@@ -31,7 +32,7 @@ jobs:
       
     - name: Set Image Tag
       run: |
-        build_date=$((date "+%Y-%m-%d_%H-%M-%S"))
+        build_date=`date "+%Y-%m-%d_%H-%M-%S"`
         echo "IMAGE_TAG=$build_date"
       
     - name: Build
