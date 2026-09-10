@@ -32,8 +32,8 @@ jobs:
       
     - name: Set Image Tag
       run: |
-        #build_date=`date "+%Y-%m-%d_%H-%M-%S"`
-        echo 'IMAGE_TAG=`date "+%Y-%m-%d_%H-%M-%S"`' >> $GITHUB_ENV
+        build_date=`date "+%Y-%m-%d_%H-%M-%S"`
+        echo 'IMAGE_TAG=$build_date' >> $GITHUB_ENV
       
     - name: Build
       id: build-image
