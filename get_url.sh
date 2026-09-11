@@ -23,7 +23,7 @@ if [[ -z "$DL_URL" ]]; then
 else
 	for i in ${DL_URL[@]}; do
 		wget $i
-		find . -iname "*.deb" -exec apt-get install {} -y \; -exec rm {} \;
+		find . -maxdepth 1 -iname "*.deb" -exec apt-get install {} -y \; -exec rm {} \;
 	done
 fi
 
