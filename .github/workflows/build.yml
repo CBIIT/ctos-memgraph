@@ -20,6 +20,13 @@ on:
         options:
           - 3.13
           - 3.12
+      ubuntu_version:
+        description: 'Version of Ubuntu to use as the base image (warning, 26.04 not available for memgraph versions before 3.13'
+        type: choice
+        options:
+          - 26.04
+          - 24.04
+          - 22.04
       fail_on_trivy_scan:
         type: boolean
         description: fail the build if vulnerabilities are found
@@ -45,12 +52,12 @@ jobs:
     - name: Set Image Tag
       run: |
         build_date=`date "+%Y-%m-%d_%H-%M-%S"`
-        echo IMAGE_TAG=${{ inputs.memgraph_type }}_${{ inputs.memgraph_version }}_$build_date >> $GITHUB_ENV
+        echo IMAGE_TAG=${{ inputs.memgraph_type }}_${{ inputs.memgraph_version }}_${{ inputs.memgraph_version }}_$build_date >> $GITHUB_ENV
       
     - name: Build
       id: build-image
       run: |
-        docker build -t ${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }} . --build-arg MEMGRAPH_TYPE=${{ inputs.memgraph_type }} --build-arg MEMGRAPH_VERSION=${{ inputs.memgraph_version }}
+        docker build -t ${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }} . --build-arg MEMGRAPH_TYPE=${{ inputs.memgraph_type }} --build-arg MEMGRAPH_VERSION=${{ inputs.memgraph_version }} --build-arg UBUNTU_VERSION=${{ inputs.ubuntu_version }}
 
     - name: Set Trivy exit code
       run: |
