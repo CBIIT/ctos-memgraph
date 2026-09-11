@@ -21,7 +21,7 @@ on:
           - 3.13
           - 3.12
       ubuntu_version:
-        description: 'Version of Ubuntu to use as the base image (warning, 26.04 not available for memgraph versions before 3.13'
+        description: 'Version of Ubuntu to use as the base image (warning, 26.04 not available for memgraph versions before 3.13)'
         type: choice
         options:
           - 26.04
@@ -52,7 +52,7 @@ jobs:
     - name: Set Image Tag
       run: |
         build_date=`date "+%Y-%m-%d_%H-%M-%S"`
-        echo IMAGE_TAG=${{ inputs.memgraph_type }}_${{ inputs.memgraph_version }}_${{ inputs.memgraph_version }}_$build_date >> $GITHUB_ENV
+        echo IMAGE_TAG=${{ inputs.memgraph_type }}_${{ inputs.memgraph_version }}_${{ inputs.ubuntu_version }}_$build_date >> $GITHUB_ENV
       
     - name: Build
       id: build-image
