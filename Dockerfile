@@ -15,7 +15,7 @@ RUN apt-get install apt-utils adduser wget -y
 
 COPY get_url.sh .
 RUN DL_URL=`bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERSION}`
-RUN find . -iname "*.deb" -exec apt-get install {} -y \;
+#RUN find . -iname "*.deb" -exec apt-get install {} -y \;
 
 # Clean up packages installed for process
 RUN apt-get remove apt-utils adduser wget python-pip python3-pip -y
