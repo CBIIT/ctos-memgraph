@@ -21,6 +21,8 @@ fi
 if [[ -z "$DL_URL" ]]; then
 	echo Unable to figure out URL
 else
-	echo $DL_URL
+	for i in ${DL_URL[@]}; do
+		wget $i
+	done
 fi
 
