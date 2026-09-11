@@ -12,7 +12,7 @@ if [[ "$MEMGRAPH_TYPE" == "memgraph" ]]; then
 			echo "Unable to download $MEMGRAPH_TYPE - $MEMGRAPH_VERSION for $UBUNTU_VERSION" 
 		fi 
 	elif [[ "$MEMGRAPH_VERSION" == "3.13" ]]; then 
-		DL_URL=https://download.memgraph.com/memgraph/v3.13.0/aarch64-deb/memgraph_3.13.0-1_amd64.deb 
+		DL_URL=https://download.memgraph.com/memgraph/v3.13.0/x86_64-deb/memgraph_3.13.0-1_amd64.deb
 	else 
 		echo "Unavailable $MEMGRAPH_TYPE version $MEMGRAPH_VERSION" 
 	fi 
