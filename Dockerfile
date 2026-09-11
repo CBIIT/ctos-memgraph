@@ -14,7 +14,12 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install apt-utils adduser wget -y
 
 COPY get_url.sh .
-RUN DL_URL=`bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERSION}`; wget "$DL_URL"
+RUN DL_URL=`bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERSION}`;\
+IFS=' ' read -ra URL <<< "$DL_URL"\
+for i in "${URL[@]}"; do\
+	wget "$i"\
+done
+#wget "$DL_URL"
 RUN find . -iname "*.deb" -exec apt-get install {} -y \;
 
 # Clean up packages installed for process
