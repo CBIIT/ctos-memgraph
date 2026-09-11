@@ -1,6 +1,6 @@
 ARG MEMGRAPH_TYPE="memgraph"
 ARG MEMGRAPH_VERSION="3.13"
-ARG UBUNTU_VERSION="24.04"
+ARG UBUNTU_VERSION="26.04"
 
 FROM ubuntu:${UBUNTU_VERSION}
 ENV DEBIAN_FRONTEND=noninteractive
@@ -18,7 +18,7 @@ RUN DL_URL=`bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERS
 RUN find . -iname "*.deb" -exec apt-get install {} -y \;
 
 # Clean up packages installed for process
-RUN apt-get remove apt-utils adduser wget -y
+RUN apt-get remove apt-utils adduser wget golang -y
 RUN apt-get autoremove -y
 RUN apt-get clean -y
 
