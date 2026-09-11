@@ -8,6 +8,18 @@ on:
       #environment:
       #  description: 'Which account the ECR repository is in'
       #  type: environment
+      memgraph_type:
+        description: 'Which type of memgraph to build with'
+        type: choice
+        options:
+          - memgraph
+          - memgraph-mage
+      memgraph_version:
+        description: 'Version of memgraph to use'
+        type: choice
+        options:
+          - v3.13
+          - v3.12
       fail_on_trivy_scan:
         type: boolean
         description: fail the build if vulnerabilities are found
@@ -33,12 +45,12 @@ jobs:
     - name: Set Image Tag
       run: |
         build_date=`date "+%Y-%m-%d_%H-%M-%S"`
-        echo IMAGE_TAG=$build_date >> $GITHUB_ENV
+        echo IMAGE_TAG=${{ inputs.memgraph_type }}_${{ inputs.memgraph_version }}_$build_date >> $GITHUB_ENV
       
     - name: Build
       id: build-image
       run: |
-        docker build -t ${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }} .
+        docker build -t ${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }} . --build-arg MEMGRAPH_TYPE=${{ inputs.memgraph_type }} --build-arg MEMGRAPH_VERSION=${{ inputs.memgraph_version }}
 
     - name: Set Trivy exit code
       run: |
