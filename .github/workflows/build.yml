@@ -20,6 +20,7 @@ on:
         options:
           - 3.13
           - 3.12
+          - 3.11
       ubuntu_version:
         description: 'Version of Ubuntu to use as the base image (warning, 26.04 not available for memgraph versions before 3.13)'
         type: choice
