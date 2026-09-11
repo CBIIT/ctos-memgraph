@@ -5,9 +5,9 @@ permissions:
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'Which account the ECR repository is in'
-        type: environment
+      #environment:
+      #  description: 'Which account the ECR repository is in'
+      #  type: environment
       fail_on_trivy_scan:
         type: boolean
         description: fail the build if vulnerabilities are found
@@ -18,7 +18,7 @@ jobs:
   build:
     name: Build Image
     runs-on: ubuntu-latest
-    environment: ${{ inputs.environment }}
+    #environment: ${{ inputs.environment }}
     env:
         #ECR_REPOSITORY: ${{ github.repository }} 
         ECR_REPOSITORY: ctos-memgraph
