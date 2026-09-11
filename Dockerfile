@@ -15,8 +15,7 @@ RUN apt-get install apt-utils adduser wget -y
 
 COPY get_url.sh .
 RUN DL_URL=`bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERSION}`;\
-IFS=' ' read -ra URL <<< "$DL_URL"\
-for i in "${URL[@]}"; do\
+for i in "${DL_URL[@]}"; do\
 	wget "$i"\
 done
 #wget "$DL_URL"
