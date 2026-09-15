@@ -1,6 +1,7 @@
 ARG MEMGRAPH_TYPE="memgraph"
 ARG MEMGRAPH_VERSION="3.13"
 ARG UBUNTU_VERSION="26.04"
+ARG OSTYPE="linux"
 
 FROM ubuntu:${UBUNTU_VERSION}
 ENV DEBIAN_FRONTEND=noninteractive
@@ -8,13 +9,15 @@ ENV DEBIAN_FRONTEND=noninteractive
 ARG MEMGRAPH_TYPE
 ARG MEMGRAPH_VERSION
 ARG UBUNTU_VERSION
+ARG OSTYPE
 
 # Update the package list and upgrade existing packages
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install apt-utils adduser wget -y
+RUN apt-get install apt-utils -y
+RUN apt-get install adduser wget libkrb5-dev -y
 
 COPY get_url.sh .
-RUN DL_URL=`bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERSION}`
+RUN DL_URL=`bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERSION} ${OSTYPE}`
 #RUN find . -iname "*.deb" -exec apt-get install {} -y \;
 
 # Clean up packages installed for process
