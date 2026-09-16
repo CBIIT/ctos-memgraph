@@ -2,6 +2,7 @@ MEMGRAPH_TYPE=$1
 MEMGRAPH_VERSION=$2
 UBUNTU_VERSION=$3
 OSTYPE=$4
+URLS_FILENAME=$5
 
 if [[ $OSTYPE == "darwin"* ]]; then
 	echo "MAC architecture"
@@ -13,32 +14,35 @@ else
 	CPU_PATH="x86_64"
 fi
 
-if [[ "$MEMGRAPH_VERSION" == "3.11" || "$MEMGRAPH_VERSION" == "3.12" ]]; then
-	if [[ "$UBUNTU_VERSION" != "26.04" ]]; then
-		DL_URL=https://download.memgraph.com/memgraph/v$MEMGRAPH_VERSION.0/ubuntu-$UBUNTU_VERSION/memgraph_"$MEMGRAPH_VERSION".0-1_$CPU_TYPE.deb
-		if [[ "$MEMGRAPH_TYPE" == "memgraph-mage" ]]; then
-			DL_URL="$DL_URL "https://download.memgraph.com/$MEMGRAPH_TYPE/v$MEMGRAPH_VERSION.0/ubuntu-$UBUNTU_VERSION/"$MEMGRAPH_TYPE"_"$MEMGRAPH_VERSION".0-1_$CPU_TYPE.deb
-		fi
-	fi
-elif [[ "$MEMGRAPH_VERSION" == "3.13" ]]; then
-	DL_URL=https://download.memgraph.com/memgraph/v$MEMGRAPH_VERSION.0/$CPU_PATH-deb/memgraph_"$MEMGRAPH_VERSION".0-1_$CPU_TYPE.deb
-	if [[ "$MEMGRAPH_TYPE" == "memgraph-mage" ]]; then
-		DL_URL="$DL_URL "https://download.memgraph.com/$MEMGRAPH_TYPE/v$MEMGRAPH_VERSION.0/deb/"$MEMGRAPH_TYPE"_"$MEMGRAPH_VERSION".0-1_$CPU_TYPE.deb
-	fi
-else
-	echo "Unknown memgraph version $MEMGRAPH_VERSION"
-fi
+DL_URL=`python3 return_urls.py -c $URLS_FILENAME -v $MEMGRAPH_VERSION -t $MEMGRAPH_TYPE -s ubuntu-$UBUNTU_VERSION -a $CPU_TYPE`
+echo $DL_URL
 
 if [[ -z "$DL_URL" ]]; then
 	echo Unable to figure out URL
 else
 	for i in ${DL_URL[@]}; do
-		wget $i --no-check-certificate
+		# Assuming we're building Mac locally, so we'd need to skip for VPN
+		if [[ "$CPU_TYPE" == "arm64" ]]; then
+			wget $i --no-check-certificate -nv
+		else
+			wget $i -nv
+		fi
 		sleep .5
-		echo "Installing deb package"
-		find . -maxdepth 1 -iname "*.deb" -exec apt-get install {} -y \;
-		echo "Cleaning up deb package"
-		find . -maxdepth 1 -iname "*.deb" -exec rm {} \;
 	done
+	DEB_FILES=""
+	for file_name in *; do
+		if [[ $file_name == *.deb ]]; then
+			DEB_FILES="$DEB_FILES ./$file_name"
+			echo "Installing deb package $file_name"
+		fi
+	done
+	echo "files to be installed: $DEB_FILES"
+	apt-get install $DEB_FILES -y
+	APT_RESULT=$?
+	if [[ $APT_RESULT -ne 0 ]]; then
+		apt-get install $DEB_FILES -y
+	fi
+	echo "Cleaning up debian files"
+	rm *.deb
 fi
 

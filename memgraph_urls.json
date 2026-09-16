@@ -1,0 +1,100 @@
+{
+  "memgraph": {
+    "3.11.0": {
+      "amd64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph/v3.11.0/ubuntu-22.04/memgraph_3.11.0-1_amd64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.11.0/ubuntu-24.04/memgraph_3.11.0-1_amd64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.11.0/fedora-42/memgraph-3.11.0_1-1.x86_64.rpm"
+      },
+      "arm64": {
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.11.0/ubuntu-24.04-aarch64/memgraph_3.11.0-1_arm64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.11.0/fedora-42-aarch64/memgraph-3.11.0_1-1.aarch64.rpm"
+      }
+    },
+    "3.12.0": {
+      "amd64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph/v3.12.0/ubuntu-22.04/memgraph_3.12.0-1_amd64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.12.0/ubuntu-24.04/memgraph_3.12.0-1_amd64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.12.0/fedora-42/memgraph-3.12.0_1-1.x86_64.rpm"
+      },
+      "arm64": {
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.12.0/ubuntu-24.04-aarch64/memgraph_3.12.0-1_arm64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.12.0/fedora-42-aarch64/memgraph-3.12.0_1-1.aarch64.rpm"
+      }
+    },
+    "3.13.0": {
+      "amd64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph/v3.13.0/x86_64-deb/memgraph_3.13.0-1_amd64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.13.0/x86_64-deb/memgraph_3.13.0-1_amd64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph/v3.13.0/x86_64-deb/memgraph_3.13.0-1_amd64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.13.0/x86_64-rpm/memgraph-3.13.0_1-1.x86_64.rpm"
+      },
+      "arm64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph/v3.13.0/aarch64-deb/memgraph_3.13.0-1_arm64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.13.0/aarch64-deb/memgraph_3.13.0-1_arm64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph/v3.13.0/aarch64-deb/memgraph_3.13.0-1_arm64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.13.0/aarch64-rpm/memgraph-3.13.0_1-1.aarch64.rpm"
+      }
+    },
+    "3.13.1": {
+      "amd64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph/v3.13.1/x86_64-deb/memgraph_3.13.1-1_amd64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.13.1/x86_64-deb/memgraph_3.13.1-1_amd64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph/v3.13.1/x86_64-deb/memgraph_3.13.1-1_amd64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.13.1/x86_64-rpm/memgraph-3.13.1_1-1.x86_64.rpm"
+      },
+      "arm64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph/v3.13.1/aarch64-deb/memgraph_3.13.1-1_arm64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.13.1/aarch64-deb/memgraph_3.13.1-1_arm64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph/v3.13.1/aarch64-deb/memgraph_3.13.1-1_arm64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.13.1/aarch64-rpm/memgraph-3.13.1_1-1.aarch64.rpm"
+      }
+    }
+  },
+  "memgraph-mage": {
+    "3.11.0": {
+      "amd64": {
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.11.0/ubuntu-24.04/memgraph-mage_3.11.0-1_amd64.deb"
+      },
+      "arm64": {
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.11.0/ubuntu-24.04/memgraph-mage_3.11.0-1_arm64.deb"
+      }
+    },
+    "3.12.0": {
+      "amd64": {
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.12.0/ubuntu-24.04/memgraph-mage_3.12.0-1_amd64.deb"
+      },
+      "arm64": {
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.12.0/ubuntu-24.04/memgraph-mage_3.12.0-1_arm64.deb"
+      }
+    },
+    "3.13.0": {
+      "amd64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph-mage/v3.13.0/deb/memgraph-mage_3.13.0-1_amd64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.13.0/deb/memgraph-mage_3.13.0-1_amd64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph-mage/v3.13.0/deb/memgraph-mage_3.13.0-1_amd64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph-mage/v3.13.0/rpm/memgraph-mage-3.13.0_1-1.x86_64.rpm"
+      },
+      "arm64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph-mage/v3.13.0/deb/memgraph-mage_3.13.0-1_arm64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.13.0/deb/memgraph-mage_3.13.0-1_arm64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph-mage/v3.13.0/deb/memgraph-mage_3.13.0-1_arm64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph-mage/v3.13.0/aarch64-rpm/memgraph-mage-3.13.0_1-1.aarch64.rpm"
+      }
+    },
+    "3.13.1": {
+      "amd64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph-mage/v3.13.1/x86_64-deb/memgraph-mage_3.13.1-1_amd64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.13.1/x86_64-deb/memgraph-mage_3.13.1-1_amd64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph-mage/v3.13.1/x86_64-deb/memgraph-mage_3.13.1-1_amd64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph-mage/v3.13.1/x86_64-rpm/memgraph-mage-3.13.1_1-1.x86_64.rpm"
+      },
+      "arm64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph-mage/v3.13.1/aarch64-deb/memgraph-mage_3.13.1-1_arm64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.13.1/aarch64-deb/memgraph-mage_3.13.1-1_arm64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph-mage/v3.13.1/aarch64-deb/memgraph-mage_3.13.1-1_arm64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph-mage/v3.13.1/aarch64-rpm/memgraph-mage-3.13.1_1-1.aarch64.rpm"
+      }
+    }
+  }
+}
