@@ -33,5 +33,7 @@ RUN apt-get clean -y
 # Clean up files
 RUN rm /usr/bin/pebble -f
 
+USER memgraph:memgraph
+
 # Set up memgraph to start
 ENTRYPOINT ["/usr/lib/memgraph/memgraph"]
