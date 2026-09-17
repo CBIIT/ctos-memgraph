@@ -33,8 +33,8 @@ RUN apt-get clean -y
 # Clean up files
 RUN rm /usr/bin/pebble -f
 
-#USER memgraph:memgraph
-USER 101:101
+# Verify that we need the group here?
+USER memgraph:memgraph
 
 # Set up memgraph to start
 ENTRYPOINT ["/usr/lib/memgraph/memgraph"]
