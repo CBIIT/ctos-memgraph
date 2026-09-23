@@ -31,9 +31,11 @@ RUN usermod -u 101 memgraph
 RUN groupmod -g 103 memgraph
 RUN find /home -group 101 -exec chgrp -h memgraph {} \;
 RUN find /var/lib -group 101 -exec chgrp -h memgraph {} \;
+RUN find /var/log -group 101 -exec chgrp -h memgraph {} \;
 RUN find /etc -group 101 -exec chgrp -h memgraph {} \;
 RUN find /home -user 100 -exec chown -h memgraph {} \;
 RUN find /var/lib -user 100 -exec chown -h memgraph {} \;
+RUN find /var/log -user 100 -exec chown -h memgraph {} \;
 RUN find /etc -user 100 -exec chown -h memgraph {} \;
 
 # Clean up packages installed for process
