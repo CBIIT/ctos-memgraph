@@ -29,8 +29,12 @@ RUN bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERSION} ${O
 # Set user ID / group ID to expected values
 RUN usermod -u 101 memgraph
 RUN groupmod -g 103 memgraph
-RUN find / -group 101 -exec chgrp -h memgraph {} \;
-RUN find / -user 100 -exec chown -h memgraph {} \;
+RUN find /home -group 101 -exec chgrp -h memgraph {} \;
+RUN find /var/lib -group 101 -exec chgrp -h memgraph {} \;
+RUN find /etc -group 101 -exec chgrp -h memgraph {} \;
+RUN find /home -user 100 -exec chown -h memgraph {} \;
+RUN find /var/lib -user 100 -exec chown -h memgraph {} \;
+RUN find /etc -user 100 -exec chown -h memgraph {} \;
 
 # Clean up packages installed for process
 RUN apt-get remove apt-utils adduser wget python-pip python3-pip python3-wheel -y
