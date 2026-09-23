@@ -26,6 +26,12 @@ RUN bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERSION} ${O
 #RUN echo "Packages to download: $DL_URL"
 #RUN find . -iname "*.deb" -exec apt-get install {} -y \;
 
+# Set user ID / group ID to expected values
+RUN usermod -u 101 memgraph
+RUN groupmod -g 103 memgraph
+RUN find / -group 101 -exec chgrp -h memgraph {} \;
+RUN find / -user 100 -exec chown -h memgraph {} \;
+
 # Clean up packages installed for process
 RUN apt-get remove apt-utils adduser wget python-pip python3-pip python3-wheel -y
 RUN apt-get autoremove -y
