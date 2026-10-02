@@ -51,7 +51,7 @@ RUN bash ./fix_permissions.sh ${MEMGRAPH_USERNAME} ${MEMGRAPH_OLD_UID} ${MEMGRAP
 #RUN find /etc -user 100 -exec chown -h memgraph {} \;
 
 # Clean up packages installed for process
-RUN apt-get remove apt-utils adduser wget python-pip python3-pip python3-wheel -y
+RUN apt-get remove apt-utils adduser wget python-pip python3-pip python3-wheel libheif1 -y
 RUN apt-get autoremove -y
 RUN apt-get clean -y
 # Clean up files
