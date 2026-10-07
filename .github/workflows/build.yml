@@ -18,6 +18,7 @@ on:
         description: 'Version of memgraph to use'
         type: choice
         options:
+          - 3.13.2
           - 3.13.1
           - 3.13.0
           - 3.12.0
@@ -27,6 +28,7 @@ on:
         type: choice
         options:
           - 24.04
+          - 26.04
       fail_on_trivy_scan:
         type: boolean
         description: fail the build if vulnerabilities are found

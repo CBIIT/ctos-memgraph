@@ -49,7 +49,22 @@
         "ubuntu-26.04": "https://download.memgraph.com/memgraph/v3.13.1/aarch64-deb/memgraph_3.13.1-1_arm64.deb",
         "fedora-42": "https://download.memgraph.com/memgraph/v3.13.1/aarch64-rpm/memgraph-3.13.1_1-1.aarch64.rpm"
       }
+    },
+    "3.13.2": {
+      "amd64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph/v3.13.2/x86_64-deb/memgraph_3.13.2-1_amd64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.13.2/x86_64-deb/memgraph_3.13.2-1_amd64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph/v3.13.2/x86_64-deb/memgraph_3.13.2-1_amd64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.13.2/x86_64-rpm/memgraph-3.13.2_1-1.x86_64.rpm"
+      },
+      "arm64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph/v3.13.2/aarch64-deb/memgraph_3.13.2-1_arm64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph/v3.13.2/aarch64-deb/memgraph_3.13.2-1_arm64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph/v3.13.2/aarch64-deb/memgraph_3.13.2-1_arm64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph/v3.13.2/aarch64-rpm/memgraph-3.13.2_1-1.aarch64.rpm"
+      }
     }
+
   },
   "memgraph-mage": {
     "3.11.0": {
@@ -94,6 +109,20 @@
         "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.13.1/aarch64-deb/memgraph-mage_3.13.1-1_arm64.deb",
         "ubuntu-26.04": "https://download.memgraph.com/memgraph-mage/v3.13.1/aarch64-deb/memgraph-mage_3.13.1-1_arm64.deb",
         "fedora-42": "https://download.memgraph.com/memgraph-mage/v3.13.1/aarch64-rpm/memgraph-mage-3.13.1_1-1.aarch64.rpm"
+      }
+    },
+    "3.13.2": {
+      "amd64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph-mage/v3.13.2/x86_64-deb/memgraph-mage_3.13.2-1_amd64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.13.2/x86_64-deb/memgraph-mage_3.13.2-1_amd64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph-mage/v3.13.2/x86_64-deb/memgraph-mage_3.13.2-1_amd64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph-mage/v3.13.2/x86_64-rpm/memgraph-mage-3.13.2_1-1.x86_64.rpm"
+      },
+      "arm64": {
+        "ubuntu-22.04": "https://download.memgraph.com/memgraph-mage/v3.13.2/aarch64-deb/memgraph-mage_3.13.2-1_arm64.deb",
+        "ubuntu-24.04": "https://download.memgraph.com/memgraph-mage/v3.13.2/aarch64-deb/memgraph-mage_3.13.2-1_arm64.deb",
+        "ubuntu-26.04": "https://download.memgraph.com/memgraph-mage/v3.13.2/aarch64-deb/memgraph-mage_3.13.2-1_arm64.deb",
+        "fedora-42": "https://download.memgraph.com/memgraph-mage/v3.13.2/aarch64-rpm/memgraph-mage-3.13.2_1-1.aarch64.rpm"
       }
     }
   }
