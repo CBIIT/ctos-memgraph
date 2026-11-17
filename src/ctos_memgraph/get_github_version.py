@@ -92,7 +92,7 @@ def main(**kwargs):
     if not latest_version:
         put_version_to_ssm(
             param_name="latest_memgraph_ver",
-            version_data=version_info["latest_version"],
+            version_data=version_info["latest_release"],
         )
     else:
         if (
