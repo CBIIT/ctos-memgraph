@@ -3,3 +3,6 @@
 
 # VIM
 *.sw*
+
+# temp python
+*egg-info

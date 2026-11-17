@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "version-check"
+version = "0.0.1"
+description = "Code to check versions of Memgraph for image building"
+requires-python = ">=3.12"
+dependencies = [
+	"requests==2.32.5",
+	"PyYAML==6.0.3",
+	"python-dateutil==3.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+	'ipython',
+	'black',
+	'pylint'
+]
+

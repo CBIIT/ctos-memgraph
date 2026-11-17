@@ -24,7 +24,7 @@ RUN apt-get install apt-utils -y
 RUN apt-get install adduser wget libkrb5-dev python3 python3-wheel -y
 
 # Install memgraph packages
-COPY return_urls.py .
+COPY src/ctos_memgraph/return_urls.py .
 COPY ${MEMGRAPH_URLS_FILENAME} .
 COPY get_url.sh .
 RUN bash ./get_url.sh ${MEMGRAPH_TYPE} ${MEMGRAPH_VERSION} ${UBUNTU_VERSION} ${OSTYPE} ${MEMGRAPH_URLS_FILENAME}
