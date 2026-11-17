@@ -3,13 +3,14 @@ permissions:
   contents: write
   id-token: write
 on:
-  schedule:
-    - cron: '08 4 * * *'
-      timezone: "America/New_York"
+  #schedule:
+  #  - cron: '08 4 * * *'
+  #    timezone: "America/New_York"
+  workflow_dispatch
 
 jobs:
   build:
-    name: Check Memgraph Version
+    name: Check Version
     runs-on: ubuntu-latest
     env:
         #ECR_REPOSITORY: ${{ github.repository }} 
