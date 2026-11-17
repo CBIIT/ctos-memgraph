@@ -12,7 +12,8 @@ def get_version_from_ssm(param_name=None):
     ssm_sess = boto3.client('ssm')
     try:
         param_data = ssm_sess.get_parameter(Name=param_name)
-    except SSM.Client.exceptions.ParameterNotFound:
+    except Exception:
+    #except SSM.Client.exceptions.ParameterNotFound:
         param_data = {}
     return param_data
 
