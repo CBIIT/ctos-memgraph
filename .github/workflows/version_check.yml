@@ -32,17 +32,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install .
 
-      - name: Execute script
-        id: execute-script
-        run: |
-          python src/ctos_memgraph/get_github_version.py -c github.yaml
-
       - name: AWS OIDC Authentication
         uses: aws-actions/configure-aws-credentials@v6.2.4
         with:
           role-to-assume: ${{ env.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ env.AWS_REGION }}
           role-session-name: ${{ github.actor }}
+
+      - name: Execute script
+        id: execute-script
+        run: |
+          python src/ctos_memgraph/get_github_version.py -c github.yaml
+
+
 
     #- name: Login to Amazon ECR
     #  id: login-aws-ecr

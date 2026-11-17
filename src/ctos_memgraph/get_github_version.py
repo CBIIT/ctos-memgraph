@@ -4,8 +4,25 @@ import requests
 from argparse import ArgumentParser
 import pprint
 import yaml
+import boto3
 from dateutil.parser import parse as du_parser
 from datetime import datetime as dt
+
+def get_version_from_ssm(param_name=None):
+    ssm_sess = boto3.client('ssm')
+    try:
+        param_data = ssm_sess.get_parameter(Name=param_name)
+    except SSM.Client.exceptions.ParameterNotFound:
+        param_data = {}
+    return param_data
+
+def put_version_to_ssm(param_name=None, version=None):
+    ssm_sess = boto3.client('ssm')
+    ssm_sess.put_parameter(
+        Name=param_name,
+        Value=version,
+        Type='String'
+    )
 
 def get_versions(owner=None, repo=None):
 
@@ -55,9 +72,12 @@ def parse_cmd_args():
     return cmd_args
 
 def main(**kwargs):
-    print(kwargs)
+    #print(kwargs)
+    latest_version = get_version_from_ssm(param_name='latest_memgraph_ver')
+    print(f'Latest SSM version: {latest_version}')
+    
     version_info = get_versions(owner=kwargs.get('owner'), repo=kwargs.get('repo'))
-    print(version_info)
+    #print(version_info)
 
 if __name__ == '__main__':
     run_args = parse_cmd_args()
