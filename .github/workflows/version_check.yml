@@ -15,7 +15,7 @@ jobs:
       #ECR_REPOSITORY: ${{ github.repository }}
       ECR_REPOSITORY: ctos-memgraph
       #SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-      AWS_ROLE_TO_ASSUME: ${{ secrets.AWS_SSM_ROLE }}
+      AWS_ROLE_TO_ASSUME: ${{ secrets.AWS_ROLE_TO_ASSUME }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
 
     steps:
